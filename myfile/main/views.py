@@ -4,7 +4,7 @@ from .models import ToDoList, Item
 from .forms import CreateNewList
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-
+#merge comment
 
 def index(response, id): #you are creating items of a list here
 
