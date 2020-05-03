@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %}all{% endblock %}
+
+{% block content %}
+<div class="container">
+       <div class="alert alert-success">
+         <h1>Information Technology</h1>
+      </div>
+</div>
+
+<ol>
+{% for list_object in complete_list %}
+
+    <div class="container">
+       <div class="alert alert-danger">
+         <button><a href="/{{list_object.id}}" class="alert-link">{{list_object.name}}</a></button>
+      </div>
+    </div>
+
+
+{% endfor %}
+</ol>
+{% endblock %}

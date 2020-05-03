@@ -1,9 +1,52 @@
 {% extends 'main/base.html' %}
 
-{% block title %}
-home
-{% endblock %}
-
+{% block title %}home{% endblock %}
+{% load static %}
 {% block content %}
-<h1>home page </h1>
+<h3>Home page </h3>
+<style>
+    .container{
+       background-image:linear-gradient(skyblue,pink);
+    }
+</style>
+<div class="container" >
+    <br>
+                <h3 class="text-light text-center bg-primary" >National Institue of Technology(Raipur)</h3>
+
+        <hr width="80% ">
+
+            <div class="row mb-5">
+                <div class="col-lg-6 col-md-6">
+                        <div class="media">
+                                <div class="media-left media-top">
+                                  <img src="{% static 'PM.jpg' %}" class="media-object" style="width:70px">
+                                </div>
+                                <div class="media-body">
+                                  <h3 class="media-heading ">   prime minister(INDIA)</h3>
+                                  <p>“  If You Are Working On Something That You Really Care About, You Don’t Have To Be Pushed. The Vision Pulls You.”</p>
+                                  <blockquote class="blockquote">
+                                       <footer class="blockquote-footer text-mute">Narendra Modi</footer>
+                                  </blockquote>
+                                </div>
+                        </div><hr>
+                        <div class="media">
+
+                                <div class="media-body">
+                                  <h3 class="media-heading ">president(INDIA)</h3>
+                                  <p>“       If You Are Working On Something That You Really Care About, You Don’t Have To Be Pushed. The Vision Pulls You.”</p>
+                                  <blockquote class="blockquote">
+                                       <footer class="blockquote-footer text-mute">Ram Nath Kovind</footer>
+                                  </blockquote>
+                                </div>
+                                <div class="media-right media-top ">
+                                        <img src="{% static 'ps.jpg' %}" class="media-object" style="width:70px">
+                                      </div>
+                        </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-5 rounded-circle ">
+                        <img src="{% static 'flag.jpg' %}" class="rounded" alt="Cinque Terre" width="340" height="300">
+                </div>
+            </div>
+</div>
+
 {% endblock %}

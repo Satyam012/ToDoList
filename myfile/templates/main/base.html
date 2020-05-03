@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    {% load static %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style type="text/css">
         .sidenav {
              height: 100%;
-             width: 160px;
+             width: 200px;
              position: fixed;
              z-index:1;
              top:0;
@@ -16,31 +16,61 @@
              background-color:#111;
              overflow-x: hidden;
              padding-top:20px;
+             background-image:linear-gradient(skyblue,green);
         }
         .sidenav a{
             padding: 8px 8px 6px 16px;
             text-decoration:none;
             font-size:25px;
-            color:#818181;
+            color:black;
             display :black;
         }
         .sidenav a:hover{
-            color :#f1f1f1;
+            color :blue;
         }
         .main{
            margin-left: 160px;
            padding: opx 10px;
-
         }
+
+         .accordion {
+          background-color: #eee;
+          color: #444;
+          cursor: pointer;
+          padding: 18px;
+          width: 100%;
+
+          border: none;
+          outline: none;
+          transition: 0.4s;
+        }
+
+        .accordion:hover {
+          background-color: #ccc;
+        }
+
+        body {
+            background-image: url({% static 'nitr.jpg' %});
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-variant-caps: small-caps;
+            }
+
     </style>
     <title>{% block title%}tim's site{% endblock %}</title>
 
 </head>
 <body>
       <div class="sidenav">
-          <a href="/home" >home</a>
-          <a href="/create">create</a>
-          <a href="/3">view</a>
+          <br>
+          <br>
+          <br>
+          <a href="/home" ><b>Home</b></a><hr>
+          <a href="/create"><b>Create New</b></a><br><hr>
+          <a href="/all"><b>All Semester</b></a><br><hr>
+
+
       </div>
 
       <div id="content", name="content", class="main">

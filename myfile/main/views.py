@@ -2,10 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import ToDoList, Item
 from .forms import CreateNewList
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+
 def index(response, id): #you are creating items of a list here
-    print(id)
+
     ls = ToDoList.objects.get(id=id)
 
     if response.method == "POST":
@@ -18,11 +20,15 @@ def index(response, id): #you are creating items of a list here
                     item.complete = False
 
                 item.save()
-
+        elif 'delete' in response.POST:
+            delete_item_id = response.POST['delete_item']
+            print(delete_item_id,"item to delete")
+            item_to_delete = Item.objects.get(id = delete_item_id)
+            item_to_delete.delete()
         elif response.POST.get("newItem"):
             txt=response.POST.get("new")
 
-            if len(txt) >2:
+            if len(txt) > 0:
                 ls.item_set.create(text=txt, complete=False)
             else:
                 print("invalid")
@@ -53,4 +59,6 @@ def create(response):
         form = CreateNewList()
     return render(response, "main/create.html", {"form": form})
 
-
+def all(response):
+    all_list = ToDoList.objects.all()
+    return render(response,'main/all.html',{'complete_list':all_list})
