@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'main.apps.MainConfig',
-    'register.apps.RegisterConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -131,4 +131,4 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')#server side
 MEDIA_URL = '/media/'#client side
 LOGIN_REDIRECT_URL = '/home/'
-LOGOUT_REDIRECT_URL = '/jhjh/'
+LOGOUT_REDIRECT_URL = '/accounts/login'

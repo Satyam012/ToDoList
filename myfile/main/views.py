@@ -53,7 +53,7 @@ def create(response):
             print(n)
             s = ToDoList(name= n)
             s.save()
-        addr = "/"+ str(s.id)
+        addr = "/" + str(s.id)
         return HttpResponseRedirect(addr)
     else:
         form = CreateNewList()
