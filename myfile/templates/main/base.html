@@ -48,6 +48,11 @@
         .accordion:hover {
           background-color: #ccc;
         }
+        .abc{
+          margin-left: 50px;
+          color:blue;
+          font-size: 25px;
+        }
 
         body {
             background-image: url({% static 'nitr.jpg' %});
@@ -69,8 +74,14 @@
           <a href="/home" ><b>Home</b></a><hr>
           <a href="/create"><b>Create New</b></a><br><hr>
           <a href="/all"><b>All Semester</b></a><br><hr>
-          <a href="accounts/register"><b>Register</b></a><br><hr>
-          <a href="accounts/login">Login</a>
+          <a href="/logout"><b>logout</b></a><br><hr>
+          {% if user.is_authenticated %}
+          <div class="abc">
+             <b><br>   hello...<br>   {{user.first_name}} </b>
+          </div>
+
+          {% endif %}
+
       </div>
 
       <div id="content", name="content", class="main">

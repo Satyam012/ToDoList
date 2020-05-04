@@ -1,29 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>registration</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-     <form action="/accounts/register/" method="POST">
-       {% csrf_token %}
-       <input type="text" name="first_name" placeholder="First Name" ><br>
-       <input type="text" name="last_name" placeholder="last Name" ><br>
-       <input type="text" name="username" placeholder="Username" ><br>
-       <input type="email" name="email" placeholder="email" ><br>
-       <input type="password" name="password1" placeholder="Password" ><br>
-       <input type="password" name="password2" placeholder="Confirm Password" ><br>
-       <input type="submit">
-     </form>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+  </head>
+  <body>
 
-     <div>
-       {% for message in messages%}
-       <h3>{{message}}</h3>
-       {% endfor %}
-     </div>
-</body>
+      <form class="login-form" action="/accounts/register/" method="POST">
+<!--        <h1 style="text-shadow: 3px 2px red;">Sign Up</h1>-->
+        {% csrf_token %}
+        <div class="txtb">
+          <input type="text" name="first_name">
+          <span data-placeholder="First name"></span>
+        </div>
+        <div class="txtb" >
+            <input type="text" name="last_name">
+            <span data-placeholder="Last name"></span>
+        </div>
+        <div class="txtb" >
+            <input type="text" name="username">
+            <span data-placeholder="username"></span>
+        </div>
+        <div class="txtb">
+            <input type="email" name="email">
+            <span data-placeholder="Enter your email"></span>
+        </div>
+        <div class="txtb">
+            <input type="password" name="password1">
+            <span data-placeholder="Password"></span>
+        </div>
+        <div class="txtb">
+            <input type="password" name="password2">
+            <span data-placeholder="Confirm Password"></span>
+        </div>
+        <div class="rightside" style="margin-left: 60px; margin-top: 10px;"><button type="submit">SUBMIT</button>
+           {% for message in messages%}
+           <h3>{{message}}</h3>
+           {% endfor %}
+        </div>
+      </form>
+
+      <script type="text/javascript">
+      $(".txtb input").on("focus",function(){
+        $(this).addClass("focus");
+      });
+
+      $(".txtb input").on("blur",function(){
+        if($(this).val() == "")
+        $(this).removeClass("focus");
+      });
+
+      </script>
+
+
+  </body>
 </html>

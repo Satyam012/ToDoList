@@ -1,22 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
     <title>login</title>
-</head>
-<body>
-    <form action="login" method="post">
-        {% csrf_token %}
-        <input type="text" name="username" placeholder="username"><br>
-        <input type="password" name="password" placeholder="password"><br>
-        <input type="submit">
-        <h4>i have no account click<a href="/accounts/register">here</a></h4>
-    </form>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+  </head>
+  <body>
 
-    <div>
-       {% for message in messages%}
-       <h3>{{message}}</h3>
-       {% endfor %}
-     </div>
-</body>
+      <form action="/" method="post" class="login-form">
+        {% csrf_token %}
+        <h1 style="padding-top: 10px;">Login</h1>
+
+        <div class="txtb">
+          <input type="text" name="username">
+          <span data-placeholder="Username"></span>
+        </div>
+
+        <div class="txtb">
+          <input type="password" name="password">
+          <span data-placeholder="Password"></span>
+        </div>
+
+        <div class="rightside" style="margin-left: 60px;"><button><input type="submit"></button></div>
+        <div class="bottom-text" style="font-size: large;">
+         <b>Don't have account? </b> <a href="/accounts/register">Sign up</a>
+        </div>
+          <br>
+        <div class="bottom-text" style="font-size: large;">
+           {% for message in messages%}
+           <h3>{{message}}</h3>
+           {% endfor %}
+        </div>
+      </form>
+
+
+      <script type="text/javascript">
+      $(".txtb input").on("focus",function(){
+        $(this).addClass("focus");
+      });
+
+      $(".txtb input").on("blur",function(){
+        if($(this).val() == "")
+        $(this).removeClass("focus");
+      });
+
+      </script>
+  </body>
 </html>
+
+
+

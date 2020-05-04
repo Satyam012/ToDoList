@@ -25,6 +25,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name="logout"),
     path('accounts/', include("accounts.urls")),
 ]
+
 if settings.DEBUG: #Not for production code Satyam
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

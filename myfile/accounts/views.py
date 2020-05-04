@@ -13,10 +13,10 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect("/")
+            return redirect("/home")
         else:
             messages.info(request, 'Invalid ')
-            return redirect('login')
+            return redirect('/')
     else:
         return render(request, 'registration/login.html')
 
