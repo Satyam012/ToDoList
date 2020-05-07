@@ -73,11 +73,11 @@
           <br>
           <a href="/home" ><b>Home</b></a><hr>
           <a href="/create"><b>Create New</b></a><br><hr>
-          <a href="/all"><b>All Semester</b></a><br><hr>
+          <a href="/all"><b>all objects</b></a><br><hr>
           <a href="/logout"><b>logout</b></a><br><hr>
           {% if user.is_authenticated %}
           <div class="abc">
-             <b><br>   hello...<br>   {{user.first_name}} </b>
+             <b><br>   hello...<br>   {{request.user.first_name}} </b>
           </div>
 
           {% endif %}
